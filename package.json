@@ -1,0 +1,19 @@
+{
+  "name": "ng2-from-zero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josivan/ng2-from-zero.git"
+  },
+  "author": "josivanps@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josivan/ng2-from-zero/issues"
+  },
+  "homepage": "https://github.com/josivan/ng2-from-zero#readme"
+}
