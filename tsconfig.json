@@ -1,6 +1,11 @@
 {
+  "files": [
+    "src/app/app.component.ts",
+    "src/app/app.module.ts",
+    "src/app/main.ts"
+  ],
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "lib": ["es2016", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -8,7 +13,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   }
 }

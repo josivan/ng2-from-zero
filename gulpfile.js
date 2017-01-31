@@ -6,6 +6,7 @@ const
   tsify       = require('tsify'),
   source      = require('vinyl-source-stream'),
   ts    = require('gulp-typescript'),
+  babelify = require('babelify'),
   babel = require('gulp-babel');
 
 gulp.task('ts-babel', () => {
@@ -27,6 +28,10 @@ gulp.task('default', () => {
       packageCache: {}
     })
     .plugin(tsify)
+    .transform('babelify', {
+      presets: ['es2015'],
+      extensions: ['.ts']
+    })
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulp.dest("dist"));
