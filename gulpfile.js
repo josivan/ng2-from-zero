@@ -1,13 +1,20 @@
 'use strict';
 
 const
-  gulp  = require('gulp'),
+  gulp        = require('gulp'),
   browserify  = require('browserify'),
   tsify       = require('tsify'),
   source      = require('vinyl-source-stream'),
-  ts    = require('gulp-typescript'),
-  babelify = require('babelify'),
-  babel = require('gulp-babel');
+  gutil       = require('gulp-util'),
+  ts          = require('gulp-typescript'),
+  babelify    = require('babelify'),
+  babel       = require('gulp-babel');
+
+const dependencies = [
+  'core-js'
+  'rxjs', 
+  'zone.js'
+];
 
 gulp.task('ts-babel', () => {
   var tsProject = ts.createProject(__dirname + "/tsconfig.json");
@@ -35,4 +42,17 @@ gulp.task('default', () => {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulp.dest("dist"));
+});
+
+// based on http://jpsierens.com/tutorial-gulp-javascript-2015-react/
+// run at least once to bundle vendors content
+gulp.task('vendors', () => {
+ 		browserify({
+			require: dependencies,
+			debug: true
+		})
+			.bundle()
+			.on('error', gutil.log)
+			.pipe(source('vendors.js'))
+			.pipe(gulp.dest('./web/js/'));
 });
